@@ -55,6 +55,90 @@ const TRUST_MARKERS = [
   { icon: "Hammer", label: "Монтаж под ключ" },
 ];
 
+const TARIFFS = [
+  {
+    name: "Базовый",
+    price: "от 29 800 ₽",
+    desc: "Корпус ЛДСП, раздвижные двери ЛДСП, базовое наполнение — полки и штанга",
+    features: ["Ширина до 180 см", "Стандартная фурнитура", "Замер и монтаж включены", "Гарантия 2 года"],
+    accent: false,
+    cta: "Заказать расчёт",
+  },
+  {
+    name: "Стандарт",
+    price: "от 54 000 ₽",
+    desc: "Корпус ЛДСП, двери с зеркалом или стеклом, расширенное наполнение на выбор",
+    features: ["Ширина до 300 см", "Зеркало или стекло", "Выдвижные ящики", "Гарантия 3 года"],
+    accent: true,
+    cta: "Заказать расчёт",
+  },
+  {
+    name: "Премиум",
+    price: "от 98 000 ₽",
+    desc: "Фасады шпон или матовое стекло, тихая немецкая фурнитура, LED, полная комплектация",
+    features: ["Любая ширина", "Фурнитура Hettich / Grass", "LED-подсветка в комплекте", "Гарантия 5 лет"],
+    accent: false,
+    cta: "Заказать расчёт",
+  },
+];
+
+const FAQ_ITEMS = [
+  {
+    q: "Сколько времени занимает изготовление шкафа?",
+    a: "От 7 до 14 рабочих дней с момента замера. Срок зависит от сложности проекта, выбранных материалов и текущей загрузки производства. Точные сроки называем после замера.",
+  },
+  {
+    q: "Замер платный?",
+    a: "Нет, выезд замерщика по Москве и Московской области бесплатный. Специалист приедет в удобное для вас время, снимет размеры и проконсультирует по материалам.",
+  },
+  {
+    q: "Из каких материалов делаете шкафы?",
+    a: "Используем ЛДСП российских и европейских производителей, МДФ, шпон, стекло, зеркало, ротанг и матовые плёнки. Толщина корпуса 16–22 мм, фасады 18 мм.",
+  },
+  {
+    q: "Какая гарантия на шкаф?",
+    a: "На корпус и фурнитуру даём гарантию от 2 до 5 лет в зависимости от тарифа. Гарантийный случай — бесплатный ремонт или замена детали.",
+  },
+  {
+    q: "Как происходит оплата?",
+    a: "Предоплата 50% при подписании договора, остаток — после установки и приёмки. Принимаем наличные, перевод на карту и безналичный расчёт для юрлиц.",
+  },
+  {
+    q: "Можно ли внести изменения после замера?",
+    a: "Да, до запуска в производство любые изменения вносятся бесплатно. После запуска изменения возможны, но могут повлиять на стоимость и срок.",
+  },
+  {
+    q: "Вы работаете только в Москве?",
+    a: "Работаем по Москве и Московской области. Выезд замерщика на расстояние свыше 50 км от МКАД — по договорённости.",
+  },
+  {
+    q: "Что входит в установку?",
+    a: "Сборка корпуса, навеска дверей, регулировка фурнитуры, вынос упаковки. Монтаж занимает 2–4 часа в зависимости от размера шкафа.",
+  },
+];
+
+function FaqItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <button
+      onClick={() => setOpen(!open)}
+      className="w-full text-left border border-[#1a1a1a] hover:border-[#e8c84a]/25 rounded-2xl px-5 py-4 bg-[#0a0a0a] hover:bg-[#0d0d0d] transition-all"
+    >
+      <div className="flex items-center justify-between gap-4">
+        <span className="font-body font-semibold text-sm md:text-base text-white leading-snug">{q}</span>
+        <div className={`flex-shrink-0 w-7 h-7 rounded-full border border-[#333] flex items-center justify-center transition-all ${open ? "border-[#e8c84a]/40 bg-[#e8c84a]/10" : ""}`}>
+          <Icon name={open ? "Minus" : "Plus"} size={14} className={open ? "text-[#e8c84a]" : "text-[#666]"} />
+        </div>
+      </div>
+      {open && (
+        <p className="mt-3 text-sm text-[#777] font-body leading-relaxed border-t border-[#1a1a1a] pt-3">
+          {a}
+        </p>
+      )}
+    </button>
+  );
+}
+
 function useInView(threshold = 0.12) {
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
@@ -280,8 +364,8 @@ export default function Index() {
           <div className="font-display font-bold text-lg sm:text-xl tracking-widest text-white flex-shrink-0">
             КУПЕ<span className="text-[#e8c84a]">МАСТЕР</span>
           </div>
-          <div className="hidden md:flex items-center gap-6 lg:gap-8 text-sm text-[#777] font-body">
-            {[["Преимущества", "advantages"], ["Галерея", "gallery"], ["Калькулятор", "calc"], ["Отзывы", "reviews"]].map(([label, id]) => (
+          <div className="hidden md:flex items-center gap-5 lg:gap-7 text-sm text-[#777] font-body">
+            {[["Галерея", "gallery"], ["Прайс", "tariffs"], ["Калькулятор", "calc"], ["FAQ", "faq"], ["Отзывы", "reviews"]].map(([label, id]) => (
               <button key={id} onClick={() => scrollTo(id)} className="hover:text-[#e8c84a] transition-colors">{label}</button>
             ))}
           </div>
@@ -636,6 +720,79 @@ export default function Index() {
         </div>
       </section>
 
+      {/* TARIFFS */}
+      <section id="tariffs" className="py-20 md:py-24 bg-[#050505]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <AnimSection>
+            <div className="text-center mb-12 md:mb-14">
+              <SectionLabel>Стоимость</SectionLabel>
+              <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl uppercase">
+                ТАРИФЫ<br /><span className="text-[#e8c84a]">И ЦЕНЫ</span>
+              </h2>
+              <p className="text-[#555] font-body mt-4 max-w-md mx-auto text-sm">
+                Ориентировочные цены — точная стоимость после бесплатного замера
+              </p>
+            </div>
+          </AnimSection>
+
+          <div className="grid md:grid-cols-3 gap-4 md:gap-5">
+            {TARIFFS.map(({ name, price, desc, features, accent, cta }, i) => (
+              <AnimSection key={i} delay={i * 80}>
+                <div className={`relative flex flex-col h-full rounded-2xl border p-6 md:p-7 transition-all ${accent ? "border-[#e8c84a]/50 bg-gradient-to-b from-[#e8c84a]/8 to-[#0a0a0a]" : "border-[#1a1a1a] bg-[#0a0a0a]"}`}>
+                  {accent && (
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#e8c84a] text-black text-[11px] font-display font-bold uppercase tracking-widest rounded-full">
+                      Популярный
+                    </div>
+                  )}
+                  <div className="mb-5">
+                    <div className="text-xs font-body text-[#666] uppercase tracking-widest mb-2">{name}</div>
+                    <div className={`font-display font-bold text-3xl md:text-4xl ${accent ? "text-[#e8c84a]" : "text-white"}`}>{price}</div>
+                    <p className="text-[#666] text-sm font-body mt-3 leading-relaxed">{desc}</p>
+                  </div>
+                  <div className="flex-1 space-y-2.5 mb-6">
+                    {features.map((f) => (
+                      <div key={f} className="flex items-center gap-2.5 text-sm font-body text-[#999]">
+                        <div className={`w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 ${accent ? "bg-[#e8c84a]/20" : "bg-[#1a1a1a]"}`}>
+                          <Icon name="Check" size={10} className={accent ? "text-[#e8c84a]" : "text-[#555]"} />
+                        </div>
+                        {f}
+                      </div>
+                    ))}
+                  </div>
+                  <button
+                    onClick={() => document.getElementById("form")?.scrollIntoView({ behavior: "smooth" })}
+                    className={`w-full py-3.5 rounded-xl font-display font-semibold text-sm transition-all hover:scale-[1.02] active:scale-[0.97] ${accent ? "bg-[#e8c84a] text-black hover:bg-[#f0d060]" : "bg-[#141414] text-[#aaa] border border-[#252525] hover:border-[#e8c84a]/30 hover:text-[#e8c84a]"}`}
+                  >
+                    {cta}
+                  </button>
+                </div>
+              </AnimSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="py-20 md:py-24">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+          <AnimSection>
+            <div className="text-center mb-12 md:mb-14">
+              <SectionLabel>Часто спрашивают</SectionLabel>
+              <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl uppercase">
+                ВОПРОСЫ<br /><span className="text-[#e8c84a]">И ОТВЕТЫ</span>
+              </h2>
+            </div>
+          </AnimSection>
+          <AnimSection delay={80}>
+            <div className="space-y-2">
+              {FAQ_ITEMS.map((item, i) => (
+                <FaqItem key={i} q={item.q} a={item.a} />
+              ))}
+            </div>
+          </AnimSection>
+        </div>
+      </section>
+
       {/* FINAL CTA */}
       <section className="py-16 md:py-20 bg-[#050505] border-t border-[#111]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
@@ -715,7 +872,7 @@ export default function Index() {
               <div>
                 <div className="text-[11px] font-body uppercase tracking-[0.3em] text-[#e8c84a] mb-5">Навигация</div>
                 <div className="space-y-2.5">
-                  {[["Преимущества", "advantages"], ["Галерея работ", "gallery"], ["Калькулятор", "calc"], ["Отзывы", "reviews"], ["Оставить заявку", "form"]].map(([label, id]) => (
+                  {[["Преимущества", "advantages"], ["Галерея работ", "gallery"], ["Прайс", "tariffs"], ["Калькулятор", "calc"], ["FAQ", "faq"], ["Отзывы", "reviews"], ["Оставить заявку", "form"]].map(([label, id]) => (
                     <button
                       key={id}
                       onClick={() => scrollTo(id)}
