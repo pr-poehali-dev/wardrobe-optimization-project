@@ -5,14 +5,108 @@ const GALLERY_IMAGES = [
   {
     src: "https://cdn.poehali.dev/projects/9be08719-4afb-4d38-8e11-9d291b6cad41/files/52d6db63-19c0-4145-950d-303dfb0baeb6.jpg",
     label: "Шкаф в спальню",
+    room: "Спальня",
   },
   {
     src: "https://cdn.poehali.dev/projects/9be08719-4afb-4d38-8e11-9d291b6cad41/files/38bd3336-99fd-4e07-b13b-c4e66eabe406.jpg",
     label: "Шкаф с зеркалом",
+    room: "Прихожая",
   },
   {
     src: "https://cdn.poehali.dev/projects/9be08719-4afb-4d38-8e11-9d291b6cad41/files/88b7fbeb-4cd1-41ce-806b-7d1b072de879.jpg",
     label: "Встроенный в нишу",
+    room: "Спальня",
+  },
+  {
+    src: "https://cdn.poehali.dev/projects/9be08719-4afb-4d38-8e11-9d291b6cad41/files/898e4c25-f12e-4354-9c2d-47413e11ebaa.jpg",
+    label: "Матовые двери с LED",
+    room: "Спальня",
+  },
+  {
+    src: "https://cdn.poehali.dev/projects/9be08719-4afb-4d38-8e11-9d291b6cad41/files/f3fba964-672d-463a-a3eb-7e8138caae03.jpg",
+    label: "Зеркальные двери в прихожей",
+    room: "Прихожая",
+  },
+  {
+    src: "https://cdn.poehali.dev/projects/9be08719-4afb-4d38-8e11-9d291b6cad41/files/7df6f976-3ba8-4101-be1f-35dafae9fd05.jpg",
+    label: "Белый шкаф в детской",
+    room: "Детская",
+  },
+  {
+    src: "https://cdn.poehali.dev/projects/9be08719-4afb-4d38-8e11-9d291b6cad41/files/48581a17-ac6b-4d67-9b91-489136ee4f3d.jpg",
+    label: "Гардеробная с золотым декором",
+    room: "Гардеробная",
+  },
+  {
+    src: "https://cdn.poehali.dev/projects/9be08719-4afb-4d38-8e11-9d291b6cad41/files/d7a43a4f-6781-481a-a9fe-c5979c2f5b07.jpg",
+    label: "Матовое стекло в гостиной",
+    room: "Гостиная",
+  },
+  {
+    src: "https://cdn.poehali.dev/projects/9be08719-4afb-4d38-8e11-9d291b6cad41/files/b721e6a2-4c3c-4390-a28f-1854201650d0.jpg",
+    label: "Зеркальный шкаф-купе",
+    room: "Спальня",
+  },
+  {
+    src: "https://cdn.poehali.dev/projects/9be08719-4afb-4d38-8e11-9d291b6cad41/files/1bd06475-352b-4a83-8285-e2d81e6e1270.jpg",
+    label: "Белый в нише прихожей",
+    room: "Прихожая",
+  },
+  {
+    src: "https://cdn.poehali.dev/projects/9be08719-4afb-4d38-8e11-9d291b6cad41/files/f285cb80-0cf7-4dd4-aa36-e558647572c4.jpg",
+    label: "Шпон и стекло",
+    room: "Гостиная",
+  },
+];
+
+const PORTFOLIO_ITEMS = [
+  {
+    src: "https://cdn.poehali.dev/projects/9be08719-4afb-4d38-8e11-9d291b6cad41/files/9e327059-1756-4622-b890-e7cb163f5bc7.jpg",
+    title: "Спальня в ЖК «Сколково Парк»",
+    desc: "Антрацитовый шкаф-купе с интегрированной LED-подсветкой и беззвучными механизмами",
+    size: "420 × 240 см",
+    material: "Лак матовый антрацит, алюм. профиль",
+    days: 12,
+  },
+  {
+    src: "https://cdn.poehali.dev/projects/9be08719-4afb-4d38-8e11-9d291b6cad41/files/13876211-3209-4c8e-91df-3c71f9694579.jpg",
+    title: "Прихожая в Химках",
+    desc: "Двухдверный купе с зеркальными полотнами — визуально расширил узкий коридор вдвое",
+    size: "180 × 240 см",
+    material: "ЛДСП белый, зеркало Silver",
+    days: 8,
+  },
+  {
+    src: "https://cdn.poehali.dev/projects/9be08719-4afb-4d38-8e11-9d291b6cad41/files/3f57f63e-f57d-487f-9c10-0a72ed06e299.jpg",
+    title: "Гардеробная в таунхаусе",
+    desc: "Полноценная гардеробная с открытыми секциями, ящиками и двумя зонами хранения",
+    size: "320 × 280 см",
+    material: "Шпон белый дуб, фурнитура Hettich",
+    days: 14,
+  },
+  {
+    src: "https://cdn.poehali.dev/projects/9be08719-4afb-4d38-8e11-9d291b6cad41/files/4a1257b8-7aa9-40fa-916d-06f8ea94eef6.jpg",
+    title: "Детская в Красногорске",
+    desc: "Мягкий пудровый цвет, круглые ручки, безопасные доводчики и внутренняя подсветка",
+    size: "240 × 220 см",
+    material: "ЛДСП пудровый, стекло матовое",
+    days: 9,
+  },
+  {
+    src: "https://cdn.poehali.dev/projects/9be08719-4afb-4d38-8e11-9d291b6cad41/files/f59efc43-3f30-4940-b7e8-43683ef7739f.jpg",
+    title: "Гостиная в Москве (Митино)",
+    desc: "Встроенный шкаф-стенка с матовыми стёклами и тихой системой открывания",
+    size: "500 × 260 см",
+    material: "Лак графит, стекло Grey Mist",
+    days: 16,
+  },
+  {
+    src: "https://cdn.poehali.dev/projects/9be08719-4afb-4d38-8e11-9d291b6cad41/files/01a60a6a-9248-4ff6-b6a4-3c14427238ed.jpg",
+    title: "Мансарда в Подмосковье",
+    desc: "Нестандартный шкаф под скошенный потолок — полностью использует объём ниши",
+    size: "280 × 210/90 см (трапеция)",
+    material: "ЛДСП белый матовый",
+    days: 10,
   },
 ];
 
@@ -340,6 +434,8 @@ function Calculator({ onOrder }: { onOrder: () => void }) {
 
 export default function Index() {
   const [activeGallery, setActiveGallery] = useState(0);
+  const [galleryFilter, setGalleryFilter] = useState("Все");
+  const [lightbox, setLightbox] = useState<{ src: string; label: string; room: string } | null>(null);
   const [formData, setFormData] = useState({ name: "", phone: "", comment: "" });
   const [submitted, setSubmitted] = useState(false);
   const [formError, setFormError] = useState("");
@@ -364,8 +460,8 @@ export default function Index() {
           <div className="font-display font-bold text-lg sm:text-xl tracking-widest text-white flex-shrink-0">
             КУПЕ<span className="text-[#e8c84a]">МАСТЕР</span>
           </div>
-          <div className="hidden md:flex items-center gap-5 lg:gap-7 text-sm text-[#777] font-body">
-            {[["Галерея", "gallery"], ["Прайс", "tariffs"], ["Калькулятор", "calc"], ["FAQ", "faq"], ["Отзывы", "reviews"]].map(([label, id]) => (
+          <div className="hidden md:flex items-center gap-4 lg:gap-6 text-sm text-[#777] font-body">
+            {[["Галерея", "gallery"], ["Портфолио", "portfolio"], ["Прайс", "tariffs"], ["Калькулятор", "calc"], ["FAQ", "faq"]].map(([label, id]) => (
               <button key={id} onClick={() => scrollTo(id)} className="hover:text-[#e8c84a] transition-colors">{label}</button>
             ))}
           </div>
@@ -529,7 +625,7 @@ export default function Index() {
       <section id="gallery" className="py-20 md:py-24 bg-[#050505]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <AnimSection>
-            <div className="text-center mb-12 md:mb-14">
+            <div className="text-center mb-10 md:mb-12">
               <SectionLabel>Примеры работ</SectionLabel>
               <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl uppercase">
                 НАШИ<br /><span className="text-[#e8c84a]">РАБОТЫ</span>
@@ -537,47 +633,71 @@ export default function Index() {
             </div>
           </AnimSection>
 
-          <AnimSection delay={100}>
-            <div className="flex flex-wrap gap-2 justify-center mb-5">
-              {GALLERY_IMAGES.map((img, i) => (
+          <AnimSection delay={80}>
+            <div className="flex flex-wrap gap-2 justify-center mb-8">
+              {["Все", "Спальня", "Прихожая", "Гостиная", "Детская", "Гардеробная"].map((cat) => (
                 <button
-                  key={i}
-                  onClick={() => setActiveGallery(i)}
-                  className={`px-4 py-2 rounded-xl font-body text-sm transition-all active:scale-95 ${activeGallery === i ? "bg-[#e8c84a] text-black font-semibold" : "bg-[#141414] text-[#777] hover:bg-[#1e1e1e] border border-[#222]"}`}
+                  key={cat}
+                  onClick={() => setGalleryFilter(cat)}
+                  className={`px-4 py-2 rounded-xl font-body text-sm transition-all active:scale-95 ${galleryFilter === cat ? "bg-[#e8c84a] text-black font-semibold" : "bg-[#141414] text-[#777] hover:bg-[#1e1e1e] border border-[#1e1e1e]"}`}
                 >
-                  {img.label}
+                  {cat}
                 </button>
               ))}
             </div>
 
-            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden" style={{ aspectRatio: "16/9" }}>
-              <img
-                key={activeGallery}
-                src={GALLERY_IMAGES[activeGallery].src}
-                alt={GALLERY_IMAGES[activeGallery].label}
-                className="w-full h-full object-cover"
-                style={{ animation: "fade-in 0.4s ease" }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/55 to-transparent pointer-events-none" />
-              <div className="absolute bottom-5 left-5 sm:bottom-7 sm:left-7">
-                <div className="font-display font-bold text-xl sm:text-2xl md:text-3xl text-white">{GALLERY_IMAGES[activeGallery].label}</div>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-3 gap-2 mt-2">
-              {GALLERY_IMAGES.map((img, i) => (
+            <div className="columns-2 sm:columns-3 lg:columns-4 gap-2 md:gap-3 space-y-2 md:space-y-3">
+              {GALLERY_IMAGES.filter(img => galleryFilter === "Все" || img.room === galleryFilter).map((img, i) => (
                 <button
-                  key={i}
-                  onClick={() => setActiveGallery(i)}
-                  className={`rounded-xl overflow-hidden transition-all ${activeGallery === i ? "ring-2 ring-[#e8c84a]" : "opacity-45 hover:opacity-70"}`}
-                  style={{ aspectRatio: "16/9" }}
+                  key={img.src}
+                  onClick={() => setLightbox(img)}
+                  className="group relative w-full break-inside-avoid rounded-xl md:rounded-2xl overflow-hidden block"
+                  style={{ animation: `fade-in 0.3s ease ${i * 50}ms both` }}
                 >
-                  <img src={img.src} alt={img.label} className="w-full h-full object-cover" />
+                  <img
+                    src={img.src}
+                    alt={img.label}
+                    className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-0 left-0 right-0 p-3 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    <div className="text-xs font-body font-semibold text-white">{img.label}</div>
+                    <div className="text-[10px] text-[#e8c84a] font-body mt-0.5">{img.room}</div>
+                  </div>
+                  <div className="absolute top-2 right-2 w-7 h-7 bg-black/40 backdrop-blur-sm rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <Icon name="ZoomIn" size={13} className="text-white" />
+                  </div>
                 </button>
               ))}
             </div>
           </AnimSection>
         </div>
+
+        {lightbox && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/92 backdrop-blur-sm"
+            onClick={() => setLightbox(null)}
+          >
+            <div className="relative max-w-4xl w-full mx-4" onClick={e => e.stopPropagation()}>
+              <img
+                src={lightbox.src}
+                alt={lightbox.label}
+                className="w-full max-h-[80vh] object-contain rounded-2xl"
+                style={{ animation: "scale-in 0.25s ease" }}
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent rounded-b-2xl">
+                <div className="font-display font-semibold text-white text-lg">{lightbox.label}</div>
+                <div className="text-[#e8c84a] text-sm font-body">{lightbox.room}</div>
+              </div>
+              <button
+                onClick={() => setLightbox(null)}
+                className="absolute -top-4 -right-4 w-10 h-10 bg-[#1a1a1a] border border-[#333] rounded-full flex items-center justify-center hover:bg-[#252525] transition-colors"
+              >
+                <Icon name="X" size={16} className="text-white" />
+              </button>
+            </div>
+          </div>
+        )}
       </section>
 
       {/* CALCULATOR */}
@@ -716,6 +836,70 @@ export default function Index() {
                 </p>
               </div>
             )}
+          </AnimSection>
+        </div>
+      </section>
+
+      {/* PORTFOLIO */}
+      <section id="portfolio" className="py-20 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <AnimSection>
+            <div className="text-center mb-12 md:mb-14">
+              <SectionLabel>Реализованные проекты</SectionLabel>
+              <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl uppercase">
+                ПОРТФОЛИО<br /><span className="text-[#e8c84a]">РАБОТ</span>
+              </h2>
+              <p className="text-[#555] font-body mt-4 max-w-md mx-auto text-sm">
+                Каждый шкаф — индивидуальный проект под конкретное пространство клиента
+              </p>
+            </div>
+          </AnimSection>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+            {PORTFOLIO_ITEMS.map((item, i) => (
+              <AnimSection key={i} delay={i * 70}>
+                <div className="group flex flex-col h-full bg-[#0a0a0a] border border-[#161616] hover:border-[#e8c84a]/25 rounded-2xl overflow-hidden transition-all">
+                  <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
+                    <img
+                      src={item.src}
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute bottom-3 left-3 flex items-center gap-1.5 bg-black/50 backdrop-blur-sm px-2.5 py-1 rounded-lg">
+                      <Icon name="Clock" size={11} className="text-[#e8c84a]" />
+                      <span className="text-[11px] font-body text-[#ddd]">{item.days} дней</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-col flex-1 p-5">
+                    <h3 className="font-display font-semibold text-base text-white mb-2 leading-snug">{item.title}</h3>
+                    <p className="text-[#666] text-sm font-body leading-relaxed mb-4 flex-1">{item.desc}</p>
+                    <div className="space-y-1.5 pt-4 border-t border-[#161616]">
+                      <div className="flex items-center gap-2">
+                        <Icon name="Maximize2" size={12} className="text-[#e8c84a] flex-shrink-0" />
+                        <span className="text-xs font-body text-[#666]">{item.size}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Icon name="Layers" size={12} className="text-[#e8c84a] flex-shrink-0" />
+                        <span className="text-xs font-body text-[#666]">{item.material}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </AnimSection>
+            ))}
+          </div>
+
+          <AnimSection delay={200}>
+            <div className="text-center mt-10">
+              <button
+                onClick={() => document.getElementById("form")?.scrollIntoView({ behavior: "smooth" })}
+                className="inline-flex items-center gap-2 px-7 py-3.5 border border-[#e8c84a]/30 text-[#e8c84a] font-display font-semibold text-sm rounded-2xl hover:bg-[#e8c84a]/8 transition-all active:scale-95"
+              >
+                <Icon name="ArrowRight" size={16} />
+                Обсудить мой проект
+              </button>
+            </div>
           </AnimSection>
         </div>
       </section>
@@ -872,7 +1056,7 @@ export default function Index() {
               <div>
                 <div className="text-[11px] font-body uppercase tracking-[0.3em] text-[#e8c84a] mb-5">Навигация</div>
                 <div className="space-y-2.5">
-                  {[["Преимущества", "advantages"], ["Галерея работ", "gallery"], ["Прайс", "tariffs"], ["Калькулятор", "calc"], ["FAQ", "faq"], ["Отзывы", "reviews"], ["Оставить заявку", "form"]].map(([label, id]) => (
+                  {[["Галерея работ", "gallery"], ["Портфолио", "portfolio"], ["Прайс", "tariffs"], ["Калькулятор", "calc"], ["FAQ", "faq"], ["Отзывы", "reviews"], ["Оставить заявку", "form"]].map(([label, id]) => (
                     <button
                       key={id}
                       onClick={() => scrollTo(id)}
