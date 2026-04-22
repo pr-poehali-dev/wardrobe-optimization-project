@@ -436,6 +436,7 @@ export default function Index() {
   const [activeGallery, setActiveGallery] = useState(0);
   const [galleryFilter, setGalleryFilter] = useState("Все");
   const [lightbox, setLightbox] = useState<{ src: string; label: string; room: string } | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [formData, setFormData] = useState({ name: "", phone: "", comment: "" });
   const [submitted, setSubmitted] = useState(false);
   const [formError, setFormError] = useState("");
@@ -465,12 +466,57 @@ export default function Index() {
               <button key={id} onClick={() => scrollTo(id)} className="hover:text-[#e8c84a] transition-colors">{label}</button>
             ))}
           </div>
-          <button
-            onClick={() => scrollTo("form")}
-            className="flex-shrink-0 px-4 sm:px-5 py-2 bg-[#e8c84a] text-black font-display font-semibold text-sm rounded-xl hover:bg-[#f0d060] transition-all active:scale-95"
-          >
-            Заказать замер
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => scrollTo("form")}
+              className="hidden sm:flex flex-shrink-0 px-4 sm:px-5 py-2 bg-[#e8c84a] text-black font-display font-semibold text-sm rounded-xl hover:bg-[#f0d060] transition-all active:scale-95"
+            >
+              Заказать замер
+            </button>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden flex items-center justify-center w-10 h-10 rounded-xl border border-[#222] bg-[#0f0f0f] hover:border-[#e8c84a]/30 transition-colors"
+              aria-label="Меню"
+            >
+              <Icon name={mobileMenuOpen ? "X" : "Menu"} size={18} className="text-white" />
+            </button>
+          </div>
+        </div>
+
+        {/* MOBILE MENU */}
+        <div
+          className="md:hidden overflow-hidden transition-all duration-300 ease-in-out"
+          style={{ maxHeight: mobileMenuOpen ? "420px" : "0px", opacity: mobileMenuOpen ? 1 : 0 }}
+        >
+          <div className="px-4 pb-5 pt-2 border-t border-[#161616] bg-[#080808]/98">
+            <div className="flex flex-col gap-1">
+              {[
+                ["Галерея", "gallery"],
+                ["Портфолио", "portfolio"],
+                ["Прайс", "tariffs"],
+                ["Калькулятор", "calc"],
+                ["FAQ", "faq"],
+                ["Отзывы", "reviews"],
+              ].map(([label, id], i) => (
+                <button
+                  key={id}
+                  onClick={() => { scrollTo(id); setMobileMenuOpen(false); }}
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-[#888] hover:text-white hover:bg-[#111] font-body text-sm transition-all text-left"
+                  style={{ transitionDelay: mobileMenuOpen ? `${i * 30}ms` : "0ms" }}
+                >
+                  {label}
+                </button>
+              ))}
+              <div className="pt-2 mt-1 border-t border-[#161616]">
+                <button
+                  onClick={() => { scrollTo("form"); setMobileMenuOpen(false); }}
+                  className="w-full py-3.5 bg-[#e8c84a] text-black font-display font-bold text-sm rounded-xl hover:bg-[#f0d060] transition-all active:scale-95"
+                >
+                  Заказать бесплатный замер
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </nav>
 
